@@ -48,7 +48,8 @@ Note: Please see the considerations below for improvements and considerations
 - sample usage:  ```curl -X POST localhost:8080/transactions/ff808081666128ab0166612a199b0003/reverse```
 
 ## Considerations and Improvements
-- Add testing for thread-safety and add instance level locks on the wallet class to ensure no more than one thread can make changes to the account 
-- Use Springs @Transactional notation to ensure transactions satisfy ACID properties in the event of an application failure or crash
-- Add testing at the web layer
+- Add testing for thread-safety and add instance level locks on the wallet class to ensure no more than one thread can make changes to the account. Yes, locks reduce performance, but may be worth it considering this is a banking application.
+- Use Springs @Transactional notation on controller operations to ensure transactions satisfy ACID properties in the event of an application failure or crash
+- Add automated testing for the web layer
 - Add support for making transfers between accounts (this was not originally part of the systems requirements doc)
+- Encrypt the database for security reasons
